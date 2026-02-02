@@ -1,0 +1,75 @@
+:root {
+  --primary-color: #141414;
+  --secondary-color: #eeeeee;
+  --font-color-black: #141414;
+  --font-color-white: #ffffff;
+}
+
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+body {
+  font-family: "Inter", sans-serif;
+  background-color: rgb(255, 255, 255);
+  /*background-image: url('../assets/images/background-gradiant.png');*/
+  background-size: cover;
+  background-position: center;
+  background-repeat: no-repeat;
+  background-attachment: fixed;
+  color: #000000;
+  overflow: hidden;
+  height: 100vh;
+  padding: 80px 100px;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: space-between;
+  position: relative;
+
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+}
+
+.curved-edge {
+  --c: 160px; /* control the curvature (works with percentage) */
+  height: 800px;
+  width: 120vw;
+  aspect-ratio: 1.5;
+  /* you can also update the 60%  */
+  mask: radial-gradient(
+      50% var(--c) at 54% var(--c),
+      #ffffff calc(100% - 40px),
+      #ffffff
+    )
+    0 calc(-1 * var(--c));
+  background: 
+    radial-gradient( at 30% 40%, rgba(142, 217, 255, 0.3) 0%, rgba(212, 236, 255, 0.15) 30%, transparent 70%),
+    radial-gradient( at 70% 60%, rgba(180, 225, 255, 0.8) 0%, rgba(212, 236, 255, 0.1) 40%, transparent 75%),
+    radial-gradient( at 50% 50%, rgba(212, 236, 255, 0.28) 0%, transparent 65%);
+  position: absolute;
+  z-index: -1;
+  filter: blur(50px);
+  animation: curvedGradientFlow 20s ease-in-out infinite;
+}
+
+@keyframes curvedGradientFlow {
+  0%, 100% {
+    opacity: 1;
+    transform: scale(1);
+  }
+  25% {
+    opacity: 0.85;
+    transform: scale(1.05);
+  }
+  50% {
+    opacity: 0.9;
+    transform: scale(0.98);
+  }
+  75% {
+    opacity: 0.95;
+    transform: scale(1.13);
+  }
+}
